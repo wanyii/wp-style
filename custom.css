@@ -1,4 +1,212 @@
-/* General */
-html, body {
-	margin: 0;
-}
+/*****
+
+00 General
+
+01 Colors
+	-1 Text
+	-2 Background
+	
+02 Techniques
+	-1 Centering
+		--1 Table
+		--2 Transform
+		--3 Flexbox
+	-2 Transitions
+		--1 Linear
+		--2 Ease-In-Out
+	-3 Box Shadows
+	-4 Image Filter
+	
+03 Navigation
+	-1 Delete Defaults
+	-2 Positions
+	-3 Style
+		--1 Fade out all links on UL hover
+		
+04 G-Form
+	-1 Default Form
+	-2 Default Errors
+	
+05 Blogs
+	-1 Col-3
+	
+06 Media Queries
+
+*****/
+
+
+/* 00 General */
+	html, body {
+		margin: 0; padding: 0;
+		width: 100%; height: 100%;
+	}
+	
+	* {
+		margin: 0; padding: 0;
+		box-sizing: border-box;
+	}
+
+	
+	ul 		{ margin: 0; padding: 0; }
+	video 	{ width: 100%; height: auto; }
+	section { position: relative; overflow: hidden; padding: 50px 0; }
+
+	.xpadding { padding: 0; }
+	
+
+/* 01 Colors */
+	/* 01-1 Text */
+		.t-primary	{ color: #000; }
+		.t-sdary	{ color: #000; }
+		.t-dark 	{ color: #000; }
+		.t-white	{ color: #fff; }
+	
+	/* 01-2 Background */
+		.bg-primary	{ background-color: #000; }
+		.bg-sdary	{ background-color: #000; }
+		.bg-dark	{ background-color: #000; }
+		.bg-white	{ background-color: #fff; }
+
+/* 02 Techniques */
+	/* 02-1 Centering */
+		/* 02-1-1 Table */
+		.div-table 	{ display: table; width: 100%; }
+		.div-tcell	{ display: table-cell; float: none; vertical-align: middle; }
+		
+		/* 02-1-2 2D Transform */
+		.child {
+			position: absolute;
+			top: 50%; left: 50%;
+			transform: translate(-50%;, -50%);
+		}
+		
+		/* 02-1-3 Flexbox */
+		.parent { display: flex; align-items: center; justify-content: center; }
+		.child 	{ max-width: 100%; }
+	
+	/* 02-2 Transition */
+	  	.transition {
+	  		transition: all 0.3s linear 0s;
+	  		transition: all 0.5s ease-in-out;
+	
+	  		-webkit-transition: all 0.3s linear 0s;
+	  		-moz-transition: all 0.3s linear 0s;
+	  		-ms-transition: all 0.3s linear 0s;
+	  		-o-transition: all 0.3s linear 0s;
+	  	}
+	/* 02-3 Box Shadow */
+		.box-shadow {
+			box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+			-webkit-box-shadow: box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+			-moz-box-shadow: box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+			-ms-box-shadow: box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+			-o-box-shadow: box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+		}
+	
+	/* 02-4 Image Filter */
+		.img-darken {
+			filter: contrast(70%);
+			-webkit-filter: contrast(70%);
+			transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+			transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+			-webkit-transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+
+			filter: contrast(100%); /* hover */
+			-webkit-filter: contrast(100%);
+			-moz-filter: contrast(100%);
+			-ms-filter: contrast(100%);
+			-o-filter: contrast(100%);
+		}
+
+/* 03 Navigation */
+		/* 03-1 -Default */
+			.navbar-default, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+				background-color: transparent;
+				background-image: none;
+				background-repeat: no-repeat;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+			}
+		/* 03-2 Positions */
+			/* Nav: Left / Right */
+			.navbar-nav { float: right; }
+			/* Nav: Center */
+			.navbar-nav { float: none; display: inline-block; }
+		
+		/* 03-3 Styles */
+			/* 03-3-1 Fade out all links on ul hover */
+				.navbar-nav:hover > li a { opacity: .5; transition: all ease .5s; }
+				/* + Override previous rule to highlight current link */
+				.navbar-nav > li:hover a { opacity: 1; }
+		
+				/* + Nav: active A */
+				.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+					color: #fff; border-bottom: 1px solid #fff;
+				}
+				/* + Nav: hover A */
+				.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+					color: #fff; border-bottom: 1px solid #fff;
+				}
+/* 04 G-Form */
+	/* 04-1 - Default */
+		.gform_wrapper input[type=email], 
+		.gform_wrapper input[type=number], 
+		.gform_wrapper input[type=password], 
+		.gform_wrapper input[type=tel], 
+		.gform_wrapper input[type=text], 
+		.gform_wrapper input[type=url],
+		.gform_wrapper textarea {
+			background-color: transparent;
+			border-left: none;
+			border-right: none;
+			border-top: none;
+			border-bottom: 2px solid #fff;
+		}
+
+	/* 04-2 - Errors */
+		.gform_wrapper div.validation_error, .gform_wrapper .validation_message,
+		.gform_wrapper li.gfield.gfield_error,
+		.gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+			color: #fff; border: none; background-color: transparent;
+		}
+		.gform_wrapper li.gfield_error input[type=email], 
+		.gform_wrapper li.gfield_error input[type=number],
+		.gform_wrapper li.gfield_error input[type=password], 
+		.gform_wrapper li.gfield_error input[type=tel], 
+		.gform_wrapper li.gfield_error input[type=text], 
+		.gform_wrapper li.gfield_error input[type=url], 
+		.gform_wrapper li.gfield_error textarea {
+			border: none;
+		}
+		
+/* 05 Blogs */
+	/* 05-1 Col-3 */
+		.display-posts-listing {
+			display: table; margin: 50px auto;
+		}
+		.display-posts-listing .listing-item {
+		    display: table-cell; width: 33.33%;
+			background-color: #fff;
+		}
+		.display-posts-listing .image, .display-posts-listing img {
+			width: 100%; height: auto;
+			display: inline-block; overflow: hidden;
+		}
+		.display-posts-listing .title {
+			display: block;
+			margin: 20px 0;
+			
+			color: #303240;
+			font-size: 20px;
+			padding: 15px;
+		}
+		span.date, span.excerpt { display: block; padding: 0 1em; color: #777; }
+		span.excerpt-dash { display: none; }
+
+/* 06 Media Queries */
+	@media (max-width: 767px) { }
+	@media (min-width:768px) and (max-width:991px) { }
+	@media (min-width:992px) and (max-width:1199px) { }
+	
+
